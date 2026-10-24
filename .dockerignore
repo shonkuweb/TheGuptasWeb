@@ -1,0 +1,10 @@
+**
+!Dockerfile
+!build.py
+!portfolio.py
+!scripts/
+!scripts/**
+!dist/
+!dist/**
+!deploy/
+!deploy/nginx.conf

@@ -1,0 +1,5 @@
+# Add this block to the EXISTING host Caddy configuration.
+# Do not replace other sites. Match the port to HTTP_PORT in .env.
+example.com {
+    reverse_proxy 127.0.0.1:18081
+}

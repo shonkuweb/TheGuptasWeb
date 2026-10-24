@@ -1,0 +1,25 @@
+name: theguptasweb
+services:
+  web:
+    build:
+      context: .
+      args:
+        SITE_URL: ${SITE_URL:?Set SITE_URL in .env to your HTTPS domain}
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${HTTP_PORT:-18081}:8080"
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 128m
+    cpus: 0.50
+    pids_limit: 100
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
